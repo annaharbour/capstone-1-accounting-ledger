@@ -48,7 +48,6 @@ public class LedgerEntry {
         this.amount = amount;
     }
 
-
     @Override
     public String toString() {
         return "LedgerEntry{" +

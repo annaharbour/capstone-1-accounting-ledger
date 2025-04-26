@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import com.pluralsight.view.HomeScreen;
+import com.pluralsight.view.Transaction;
 
 import java.util.Scanner;
 
@@ -14,10 +15,12 @@ public class AccountingLedgerApp {
             char menuSelection = Character.toUpperCase(scanner.nextLine().trim().charAt(0));
             switch (menuSelection) {
                 case 'D':
-                    System.out.println("Deposit Screen\n");
+                    System.out.println("Make a deposit: \n");
+                    Transaction.handleTransaction(menuSelection, scanner);
                     break;
                 case 'P':
-                    System.out.println("Payment Screen\n");
+                    System.out.println("Make a payment: \n");
+                    Transaction.handleTransaction(menuSelection, scanner);
                     break;
                 case 'L':
                     System.out.println("View Ledger\n");
@@ -29,6 +32,7 @@ public class AccountingLedgerApp {
                     break;
                 default:
                     System.out.println("Invalid menu selection.");
+                    HomeScreen.displayMenu();
             }
         }
     }
