@@ -5,6 +5,7 @@ public class HomeScreen {
             "Program"};
 
     public static void displayMenu() {
+        System.out.println("HomeScreen");
         for (String option : menuOptions) {
             System.out.println("\t\n" + option);
         }
