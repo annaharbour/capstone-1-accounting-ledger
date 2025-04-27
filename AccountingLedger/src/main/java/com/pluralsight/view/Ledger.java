@@ -13,26 +13,29 @@ public class Ledger {
     }
 
     public static void makeSelection(Scanner scanner) {
-        String menuSelection = scanner.nextLine().trim().toUpperCase();
-        switch (menuSelection) {
-            case "A":
-                LedgerEntries.displayAll();
-                break;
-            case "D":
-                LedgerEntries.displayDeposits();
-                break;
-            case "P":
-                LedgerEntries.displayPayments();
-                break;
-            case "R":
-                Reports.displayMenu();
-                Reports.makeSelection(scanner);
-                break;
-            case "H":
-                break;
-            default:
-                System.out.println("Invalid menu selection.");
-                displayMenu();
+        while(true) {
+            displayMenu();
+            String menuSelection = scanner.nextLine().trim().toUpperCase();
+            switch (menuSelection) {
+                case "A":
+                    LedgerEntries.displayAll();
+                    break;
+                case "D":
+                    LedgerEntries.displayDeposits();
+                    break;
+                case "P":
+                    LedgerEntries.displayPayments();
+                    break;
+                case "R":
+                    Reports.displayMenu();
+                    Reports.makeSelection(scanner);
+                    break;
+                case "H":
+                    return;
+                default:
+                    System.out.println("Invalid menu selection.");
+                    displayMenu();
+            }
         }
     }
 }
