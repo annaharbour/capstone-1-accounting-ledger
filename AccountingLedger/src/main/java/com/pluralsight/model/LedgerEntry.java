@@ -52,10 +52,6 @@ public class LedgerEntry {
     public String toString() {
         DateTimeFormatter fmtTime = DateTimeFormatter.ofPattern("HH:mm:ss");
         DateTimeFormatter fmtDate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-//        System.out.printf("Adding entry: %s|%s|%s|%s|%.2f\n", entryDateTime.format(fmtDate),
-//                entryDateTime.format(fmtTime), description, vendor,
-//                transactionValue);
-
         return dateTimeStamp.format(fmtDate) + "|" + dateTimeStamp.format(
                 fmtTime) + "|" + description + "|" + vendor + "|" + amount;
     }
