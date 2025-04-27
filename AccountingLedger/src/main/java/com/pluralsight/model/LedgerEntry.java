@@ -1,15 +1,15 @@
-package com.pluralsight.models;
+package com.pluralsight.model;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class LedgerEntry {
     private LocalDateTime dateTimeStamp;
     private String description;
     private String vendor;
-    private BigDecimal amount;
+    private float amount;
 
-    public LedgerEntry(LocalDateTime dateTimeStamp, String description, String vendor, BigDecimal amount) {
+    public LedgerEntry(LocalDateTime dateTimeStamp, String description, String vendor, float amount) {
         this.dateTimeStamp = dateTimeStamp;
         this.description = description;
         this.vendor = vendor;
@@ -40,21 +40,23 @@ public class LedgerEntry {
         this.vendor = vendor;
     }
 
-    public BigDecimal getAmount() {
+    public float getAmount() {
         return amount;
     }
 
-    public void setAmount(BigDecimal amount) {
+    public void setAmount(float amount) {
         this.amount = amount;
     }
 
     @Override
     public String toString() {
-        return "LedgerEntry{" +
-                "dateTimeStamp=" + dateTimeStamp +
-                ", description='" + description + '\'' +
-                ", vendor='" + vendor + '\'' +
-                ", amount=" + amount +
-                '}';
+        DateTimeFormatter fmtTime = DateTimeFormatter.ofPattern("HH:mm:ss");
+        DateTimeFormatter fmtDate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//        System.out.printf("Adding entry: %s|%s|%s|%s|%.2f\n", entryDateTime.format(fmtDate),
+//                entryDateTime.format(fmtTime), description, vendor,
+//                transactionValue);
+
+        return dateTimeStamp.format(fmtDate) + "|" + dateTimeStamp.format(
+                fmtTime) + "|" + description + "|" + vendor + "|" + amount;
     }
 }
