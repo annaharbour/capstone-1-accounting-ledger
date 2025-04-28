@@ -10,13 +10,6 @@ import java.util.function.Predicate;
 public class LedgerMap {
 //    TODO: file handler call to populate ledger map with entries
     private static TreeMap<LocalDateTime, LedgerEntry> entries = new TreeMap<>(java.util.Collections.reverseOrder());
-//
-//    public static LedgerMap getInstance() {
-//        if (instance == null) {
-//            instance = DataHandler.createHandler().load(); // Load data once
-//        }
-//        return instance;
-//    }
 
     public static void addEntry(LedgerEntry entry) {
         entries.put(entry.getDateTimeStamp(), entry);

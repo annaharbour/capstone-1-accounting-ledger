@@ -8,18 +8,34 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class FileHandler extends DataHandler {
-    private static final String PATH = "AccountingLedger/src/main/resources/";
+//    private static final String PATH = "AccountingLedger/src/main/resources/";
     private static final String FILE_NAME = "transactions.csv";
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     @Override
+//    public void save(LedgerMap ledger) {
+//        try (BufferedWriter writer = new BufferedWriter(new FileWriter( FILE_NAME))) {
+//            writer.write("DateTime, Description, Vendor,Amount\n"); // CSV header
+//            for (var entry : ledger.getEntries().entrySet()) {
+//                LocalDateTime dateTime = entry.getKey(); // TreeMap Key
+//                LedgerEntry ledgerEntry = entry.getValue(); // Corresponding value
+//                writer.write(String.format("%s,%s,%s,%.2f\n",// entry fields
+//                        dateTime.format(DATE_FORMATTER),
+//                        ledgerEntry.getDescription(),
+//                        ledgerEntry.getVendor(),
+//                        ledgerEntry.getAmount()));
+//            }
+//        } catch (IOException e) {
+//            System.err.println("Error saving ledger to file: " + e.getMessage());
+//        }
+//    }
+
     public void save(LedgerMap ledger) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
-            writer.write("DateTime, Description, Vendor,Amount\n"); // CSV header
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
             for (var entry : ledger.getEntries().entrySet()) {
                 LocalDateTime dateTime = entry.getKey(); // TreeMap Key
                 LedgerEntry ledgerEntry = entry.getValue(); // Corresponding value
-                writer.write(String.format("%s,%s,%s,%.2f\n",// entry fields
+                writer.write(String.format("%s,%s,%s,%.2f\n", // entry fields
                         dateTime.format(DATE_FORMATTER),
                         ledgerEntry.getDescription(),
                         ledgerEntry.getVendor(),
