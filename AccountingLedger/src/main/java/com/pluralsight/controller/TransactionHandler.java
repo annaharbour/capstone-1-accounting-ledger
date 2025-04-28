@@ -1,5 +1,6 @@
 package com.pluralsight.controller;
 
+import com.pluralsight.data.DataHandler;
 import com.pluralsight.model.LedgerEntry;
 import com.pluralsight.model.LedgerMap;
 
@@ -19,6 +20,7 @@ public class TransactionHandler {
 //      Instantiate and Insert New Entry
         LedgerEntry entry = new LedgerEntry(entryDateTime, description, vendor, transactionValue);
         LedgerMap.addEntry(entry);
+
 
     }
 }
