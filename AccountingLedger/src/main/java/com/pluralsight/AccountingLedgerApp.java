@@ -23,15 +23,12 @@ public class AccountingLedgerApp {
                 case "D":
                     System.out.println("Make a deposit: \n");
                     Transaction.handleTransaction(menuSelection, scanner);
-                    dataHandler.save(ledger);
                     break;
                 case "P":
                     System.out.println("Make a payment: \n");
                     Transaction.handleTransaction(menuSelection, scanner);
-                    dataHandler.save(ledger);
                     break;
                 case "L":
-                    Ledger.displayMenu();
                     Ledger.makeSelection(scanner);
                     break;
                 case "X":
@@ -43,6 +40,7 @@ public class AccountingLedgerApp {
                     System.out.println("Invalid menu selection.");
                     HomeScreen.displayMenu();
             }
+            dataHandler.save(ledger);
         }
     }
 
