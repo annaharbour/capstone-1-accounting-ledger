@@ -44,8 +44,7 @@ public class Reports {
                 ReportHandler.generateReportByVendor(vendorName);
                 break;
             case "H":
-                HomeScreen.displayMenu();
-                break;
+                return;
             default:
                 System.out.println("Invalid menu selection.");
                 displayMenu();

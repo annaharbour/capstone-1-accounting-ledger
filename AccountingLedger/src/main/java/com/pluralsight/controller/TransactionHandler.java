@@ -1,19 +1,26 @@
 package com.pluralsight.controller;
 
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
+import com.pluralsight.data.DataHandler;
+import com.pluralsight.model.LedgerEntry;
+import com.pluralsight.model.LedgerMap;
+
+import java.time.LocalDateTime;
 
 public class TransactionHandler {
-    public static void addEntry(String transactionDateTime, String description, String vendor,
-                                String menuSelection, Double transactionValue) {
-//TODO: format datetime for insertion
-        if (menuSelection == "P") transactionValue *= -1;
-        BigDecimal amount = new BigDecimal(transactionValue);
-        DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
-        String formattedAmount = decimalFormat.format(amount);
 
-//        TODO: format amount for entry
-//TODO: filehandler
-        System.out.printf("Adding entry: YYYY-MM-dd|HH:mm:ss|description|vendor|$$$\n");
+    public static void addEntry(String description, String vendor,
+                                String menuSelection, float transactionValue) {
+
+//      If Payment, Convert to Negative Value
+        if (menuSelection.equals("P")) transactionValue *= -1;
+
+//      TimeStamp
+        LocalDateTime entryDateTime = LocalDateTime.now();
+
+//      Instantiate and Insert New Entry
+        LedgerEntry entry = new LedgerEntry(entryDateTime, description, vendor, transactionValue);
+        LedgerMap.addEntry(entry);
+
+
     }
 }
