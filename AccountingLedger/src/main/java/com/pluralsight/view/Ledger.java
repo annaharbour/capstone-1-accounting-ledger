@@ -34,7 +34,6 @@ public class Ledger {
                     return;
                 default:
                     System.out.println("Invalid menu selection.");
-                    displayMenu();
             }
         }
     }

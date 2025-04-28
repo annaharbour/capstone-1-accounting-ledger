@@ -24,6 +24,16 @@ public class LedgerEntry {
         this.dateTimeStamp = dateTimeStamp;
     }
 
+    public String getFormattedDate(){
+        DateTimeFormatter fmtDate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return dateTimeStamp.format(fmtDate);
+    }
+
+    public String getFormattedTime(){
+        DateTimeFormatter fmtTime = DateTimeFormatter.ofPattern("HH:mm:ss");
+        return dateTimeStamp.format(fmtTime);
+    }
+
     public String getDescription() {
         return description;
     }
@@ -50,9 +60,6 @@ public class LedgerEntry {
 
     @Override
     public String toString() {
-        DateTimeFormatter fmtTime = DateTimeFormatter.ofPattern("HH:mm:ss");
-        DateTimeFormatter fmtDate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        return dateTimeStamp.format(fmtDate) + "|" + dateTimeStamp.format(
-                fmtTime) + "|" + description + "|" + vendor + "|" + amount;
+        return this.getFormattedDate() + "|" + this.getFormattedTime() + "|" + description + "|" + vendor + "|" + amount;
     }
 }

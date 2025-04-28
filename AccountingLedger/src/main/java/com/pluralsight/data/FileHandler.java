@@ -31,12 +31,15 @@ public class FileHandler extends DataHandler {
 //    }
 
     public void save(LedgerMap ledger) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
+            writer.write("Date,Time,Description,Vendor,Amount\n"); // CSV header
             for (var entry : ledger.getEntries().entrySet()) {
                 LocalDateTime dateTime = entry.getKey(); // TreeMap Key
                 LedgerEntry ledgerEntry = entry.getValue(); // Corresponding value
-                writer.write(String.format("%s,%s,%s,%.2f\n", // entry fields
-                        dateTime.format(DATE_FORMATTER),
+                writer.write(String.format("%s,%s,%s,%s,%.2f\n", // entry fields
+//                        dateTime.format(DATE_FORMATTER),
+                        ledgerEntry.getFormattedDate(),
+                        ledgerEntry.getFormattedTime(),
                         ledgerEntry.getDescription(),
                         ledgerEntry.getVendor(),
                         ledgerEntry.getAmount()));
@@ -55,11 +58,12 @@ public class FileHandler extends DataHandler {
             // add each row to map of entries
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
-                if (parts.length == 4) {
-                    LocalDateTime dateTime = LocalDateTime.parse(parts[0], DATE_FORMATTER);
-                    String description = parts[1];
-                    String vendor = parts[2];
-                    float amount = Float.parseFloat(parts[3]);
+                if (parts.length == 5) {
+//                    LocalDateTime dateTime = LocalDateTime.parse(parts[0], DATE_FORMATTER);
+                    LocalDateTime dateTime = LocalDateTime.parse(parts[0] + " " + parts[1], DATE_FORMATTER);
+                    String description = parts[2];
+                    String vendor = parts[3];
+                    float amount = Float.parseFloat(parts[4]);
                     LedgerEntry entry = new LedgerEntry(dateTime, description, vendor, amount);
                     ledger.addEntry(entry);
                 }
