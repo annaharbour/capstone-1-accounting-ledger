@@ -3,8 +3,10 @@ package com.pluralsight.controller;
 import com.pluralsight.model.LedgerEntry;
 import com.pluralsight.model.LedgerMap;
 import com.pluralsight.model.Report;
+import com.pluralsight.view.CustomSearch;
 
 import java.time.LocalDateTime;
+import java.util.Scanner;
 import java.util.TreeMap;
 
 public class ReportHandler {
@@ -37,7 +39,7 @@ public class ReportHandler {
     }
 
     public static void generateYearToDateReport() {
-        System.out.println("Year To Date Report: \n");
+        System.out.println("\n\nYear To Date Report: \n\n");
         TreeMap<LocalDateTime, LedgerEntry> entries = LedgerMap.displayFiltered(entry ->
                 entry.getDateTimeStamp().getYear() == LocalDateTime.now().getYear()
         );
@@ -62,11 +64,19 @@ public class ReportHandler {
     }
 
     public static void generateReportByVendor(String vendorName) {
-        System.out.println("Report By Vendor: " + vendorName + "\n");
         TreeMap<LocalDateTime, LedgerEntry> entries = LedgerMap.displayFiltered(entry ->
                 entry.getVendor().equalsIgnoreCase(vendorName)
         );
-        System.out.printf("\n\nVENDOR REPORT: %s\n", vendorName);
+        System.out.printf("\n\nVENDOR REPORT: %s\n\n", vendorName);
+        Report report = new Report(entries);
+        report.displayTransactions();
+        report.displayDeposits();
+        report.displayPayments();
+    }
+
+    public static void generateCustomReport(Scanner scanner){
+        TreeMap<LocalDateTime, LedgerEntry> entries = CustomSearch.promptUser(scanner);
+        System.out.printf("\n\nYOUR CUSTOM REPORT:\n\n");
         Report report = new Report(entries);
         report.displayTransactions();
         report.displayDeposits();

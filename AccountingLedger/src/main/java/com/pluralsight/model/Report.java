@@ -17,7 +17,7 @@ public class Report {
     }
 
     public void displayTransactions() {
-        System.out.println("TRANSACTIONS:");
+        System.out.println("\nTRANSACTIONS:");
         for (LedgerEntry entry : this.entries.values()) {
             balance += entry.getAmount();
             System.out.println(entry);
@@ -44,7 +44,7 @@ public class Report {
         System.out.println("\nPAYMENTS:");
         for (LedgerEntry payment : payments) {
             System.out.println(payment);
-            totalPayments += payment.getAmount();
+            totalPayments -= payment.getAmount();
         }
         System.out.printf("Total Payments: %.2f\n", totalPayments);
     }
