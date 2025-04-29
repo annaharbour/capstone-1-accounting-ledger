@@ -5,6 +5,13 @@ import com.pluralsight.controller.ReportHandler;
 import java.util.Scanner;
 
 public class Reports {
+    private static boolean returnHome;
+
+    private void setReturnHome(){
+        this.returnHome = true;
+    }
+
+
     public static String[] menuOptions = {"1) Month To Date", "2) Previous Month", "3) Year To Date", "4) Previous " +
             "Year", "5) Search By Vendor", "0) Back to Reports", "H) Return to Home Screen"};
 
@@ -21,8 +28,10 @@ public class Reports {
         return vendorName;
     }
 
+
     public static void makeSelection(Scanner scanner) {
         String menuSelection = scanner.nextLine().trim().toUpperCase();
+        boolean returnHome = false;
         switch (menuSelection) {
             case "0":
                 LedgerEntries.displayAll();

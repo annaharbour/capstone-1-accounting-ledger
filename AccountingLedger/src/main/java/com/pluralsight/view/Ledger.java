@@ -29,7 +29,7 @@ public class Ledger {
                 case "R":
                     Reports.displayMenu();
                     Reports.makeSelection(scanner);
-                    break;
+                    return;
                 case "H":
                     return;
                 default:

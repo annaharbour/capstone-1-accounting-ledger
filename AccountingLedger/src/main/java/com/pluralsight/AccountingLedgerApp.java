@@ -11,7 +11,9 @@ import java.util.Scanner;
 
 public class AccountingLedgerApp {
     private static Scanner scanner = new Scanner(System.in);
+//    Creating file handler - one line change in Data Handler and here to switch to a database later
     private static DataHandler dataHandler = DataHandler.createHandler();
+    //    data handler call to populate ledger map with entries stored there
     private static LedgerMap ledger = dataHandler.load();
 
     public static void main(String[] args) {

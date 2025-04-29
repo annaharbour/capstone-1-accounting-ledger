@@ -14,9 +14,31 @@ public class ReportHandler {
                 entry.getDateTimeStamp().getMonth() == LocalDateTime.now().getMonth() &&
                         entry.getDateTimeStamp().getYear() == LocalDateTime.now().getYear()
         );
+
+        System.out.printf("Month To Date Report: ");
         for (LedgerEntry entry : entries.values()) {
             System.out.println(entry.toString());
+            System.out.println();
         }
+
+
+//        return following info then pass into Report() in reports
+
+//        time frame heading
+//        red - all payments
+//        green - all deposits
+//        together, listed by datetime stamp
+        //account balance
+
+//        all payments
+//        total amount of payments
+//        
+//        all deposits
+//        total amount of deposits
+//
+//        prompt user whether they want to export a csv
+//        y/n
+//        return to reports screen
     }
 
     public static void generatePreviousMonthReport() {
