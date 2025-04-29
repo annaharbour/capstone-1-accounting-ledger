@@ -23,6 +23,13 @@ public class Reports {
         return vendorName;
     }
 
+    public static void returnToMenu(Scanner scanner){
+        System.out.println("\nPress Enter to return to the menu...");
+        if (scanner.hasNextLine()) {
+            scanner.nextLine();
+        }
+    }
+
 
     public static String makeSelection(Scanner scanner) {
         while (true) {
@@ -33,28 +40,35 @@ public class Reports {
                     return "LEDGER";
                 case "1":
                     ReportHandler.generateMonthToDateReport();
+                    returnToMenu(scanner);
                     break;
                 case "2":
                     ReportHandler.generatePreviousMonthReport();
+                    returnToMenu(scanner);
                     break;
                 case "3":
                     ReportHandler.generateYearToDateReport();
+                    returnToMenu(scanner);
                     break;
                 case "4":
                     ReportHandler.generatePreviousYearReport();
+                    returnToMenu(scanner);
                     break;
                 case "5":
                     String vendorName = promptForVendor(scanner);
                     ReportHandler.generateReportByVendor(vendorName);
+                    returnToMenu(scanner);
                     break;
                 case "6":
                     ReportHandler.generateCustomReport(scanner);
+                    returnToMenu(scanner);
                     break;
                 case "H":
                     return "HOME";
                 default:
                     System.out.println("Invalid menu selection.");
             }
+
         }
     }
 }
