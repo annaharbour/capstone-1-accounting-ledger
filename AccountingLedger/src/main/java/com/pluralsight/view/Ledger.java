@@ -28,8 +28,11 @@ public class Ledger {
                     break;
                 case "R":
                     Reports.displayMenu();
-                    Reports.makeSelection(scanner);
-                    return;
+                    String result = Reports.makeSelection(scanner);
+                    if ("HOME".equals(result)) {
+                        return; // Return to home screen
+                    }
+                    break;
                 case "H":
                     return;
                 default:

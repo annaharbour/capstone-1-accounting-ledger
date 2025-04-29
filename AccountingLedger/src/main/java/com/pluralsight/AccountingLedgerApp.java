@@ -1,7 +1,6 @@
 package com.pluralsight;
 
 import com.pluralsight.data.DataHandler;
-import com.pluralsight.data.FileHandler;
 import com.pluralsight.model.LedgerMap;
 import com.pluralsight.view.HomeScreen;
 import com.pluralsight.view.Ledger;
@@ -45,5 +44,4 @@ public class AccountingLedgerApp {
             dataHandler.save(ledger);
         }
     }
-
 }

@@ -12,7 +12,6 @@ public class LedgerMap {
     //    add entry to tree map
     public static void addEntry(LedgerEntry entry) {
         entries.put(entry.getDateTimeStamp(), entry);
-        System.out.println("Entry added and saved successfully.");
     }
 
     //    get all entries, unfiltered
