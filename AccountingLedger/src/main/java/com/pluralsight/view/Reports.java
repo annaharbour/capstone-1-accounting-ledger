@@ -30,7 +30,6 @@ public class Reports {
         }
     }
 
-
     public static String makeSelection(Scanner scanner) {
         while (true) {
             displayMenu();
@@ -68,7 +67,6 @@ public class Reports {
                 default:
                     System.out.println("Invalid menu selection.");
             }
-
         }
     }
 }
