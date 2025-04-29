@@ -27,8 +27,10 @@ public class Ledger {
                     LedgerEntries.displayPayments();
                     break;
                 case "R":
-                    Reports.displayMenu();
-                    Reports.makeSelection(scanner);
+                    String result = Reports.makeSelection(scanner);
+                    if ("HOME".equals(result)) {
+                        return; // Return to home screen
+                    }
                     break;
                 case "H":
                     return;
