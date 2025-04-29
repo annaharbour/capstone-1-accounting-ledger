@@ -10,22 +10,23 @@ public class Reports {
             "Year", "5) Search By Vendor", "0) Back to Ledger", "H) Return to Home Screen"};
 
     public static void displayMenu() {
-        System.out.println("What kind of report would you like to generate?");
+        System.out.println("\nWhat kind of report would you like to generate?\n");
         for (String option : menuOptions) {
             System.out.printf("\t\n %s", option);
         }
     }
 
     public static String promptForVendor(Scanner scanner) {
-        System.out.println("Enter the vendor name: ");
+        System.out.println("Enter the vendor name: \n");
         String vendorName = scanner.nextLine();
         return vendorName;
     }
 
 
     public static String makeSelection(Scanner scanner) {
-        String menuSelection = scanner.nextLine().trim().toUpperCase();
-        while(true) {
+        while (true) {
+            displayMenu();
+            String menuSelection = scanner.nextLine().trim().toUpperCase();
             switch (menuSelection) {
                 case "0":
                     return "LEDGER";
@@ -49,7 +50,6 @@ public class Reports {
                     return "HOME";
                 default:
                     System.out.println("Invalid menu selection.");
-                    displayMenu();
             }
         }
     }
