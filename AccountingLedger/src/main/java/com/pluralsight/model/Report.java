@@ -17,7 +17,7 @@ public class Report {
     }
 
     public void displayTransactions() {
-        System.out.println("TRANSACTIONS:");
+        System.out.println("\nTRANSACTIONS:");
         for (LedgerEntry entry : this.entries.values()) {
             balance += entry.getAmount();
             System.out.println(entry);

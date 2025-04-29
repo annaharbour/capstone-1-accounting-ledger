@@ -7,13 +7,14 @@ import java.util.Scanner;
 public class Reports {
 
     public static String[] menuOptions = {"1) Month To Date", "2) Previous Month", "3) Year To Date", "4) Previous " +
-            "Year", "5) Search By Vendor", "0) Back to Ledger", "H) Return to Home Screen"};
+            "Year", "5) Search By Vendor", "6) Custom Report", "0) Back to Ledger", "H) Return to Home Screen"};
 
     public static void displayMenu() {
-        System.out.println("\nWhat kind of report would you like to generate?\n");
+        System.out.println("\nWhat kind of report would you like to generate?");
         for (String option : menuOptions) {
-            System.out.printf("\t\n %s", option);
+            System.out.printf("\n\t %s", option);
         }
+        System.out.println("\n");
     }
 
     public static String promptForVendor(Scanner scanner) {
@@ -46,11 +47,16 @@ public class Reports {
                     String vendorName = promptForVendor(scanner);
                     ReportHandler.generateReportByVendor(vendorName);
                     break;
+                case "6":
+                    ReportHandler.generateCustomReport(scanner);
+                    break;
                 case "H":
                     return "HOME";
                 default:
                     System.out.println("Invalid menu selection.");
             }
+            System.out.println("\nEnter to return to the menu.");
+            scanner.nextLine().trim();
         }
     }
 }
