@@ -12,6 +12,13 @@ public class Ledger {
         }
     }
 
+    public static void returnToMenu(Scanner scanner){
+        System.out.println("\nPress Enter to return to the menu...");
+        if (scanner.hasNextLine()) {
+            scanner.nextLine();
+        }
+    }
+
     public static void makeSelection(Scanner scanner) {
         while(true) {
             displayMenu();
@@ -19,17 +26,20 @@ public class Ledger {
             switch (menuSelection) {
                 case "A":
                     LedgerEntries.displayAll();
+                    returnToMenu(scanner);
                     break;
                 case "D":
                     LedgerEntries.displayDeposits();
+                    returnToMenu(scanner);
                     break;
                 case "P":
                     LedgerEntries.displayPayments();
+                    returnToMenu(scanner);
                     break;
                 case "R":
                     String result = Reports.makeSelection(scanner);
                     if ("HOME".equals(result)) {
-                        return; // Return to home screen
+                        return;
                     }
                     break;
                 case "H":

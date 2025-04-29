@@ -39,7 +39,6 @@ public class AccountingLedgerApp {
                     break;
                 default:
                     System.out.println("Invalid menu selection.");
-                    HomeScreen.displayMenu();
             }
             dataHandler.save(ledger);
         }
