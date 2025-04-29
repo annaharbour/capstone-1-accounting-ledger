@@ -1,48 +1,69 @@
 Date,Time,Description,Vendor,Amount
 2025-04-29,14:21:42,Health insurance premium,Blue Shield,-223.45
-2025-04-29,14:18:19,YearUp Salary,Year Up United,50.00
-2025-04-29,07:45:00,Public transport pass,Metro Transit,45.00
-2025-04-28,20:00:00,Streaming subscription,Netflix,15.49
-2025-04-27,09:10:00,Car wash,Sparkle Clean,15.00
-2025-04-26,15:15:00,Pet supplies,PetSmart,40.00
-2025-04-25,18:00:00,Home improvement,Lowe's,150.00
-2025-04-24,13:30:00,Lunch meeting,Chick-fil-A,11.20
-2025-04-23,16:45:00,Client gift,Barnes & Noble,30.00
-2025-04-22,11:00:00,New headphones,Best Buy,99.99
-2025-04-21,19:20:00,Grocery run,Walmart,85.75
-2025-04-20,08:00:00,Parking garage,City Parking,12.00
-2025-04-19,17:30:00,Dinner and drinks,Olive Garden,62.00
-2025-04-18,10:00:00,Taxi to meeting,Uber,23.60
-2025-04-17,14:45:00,Office supplies,Staples,56.40
-2025-04-16,12:15:00,Lunch with client,Panera Bread,18.95
-2025-04-15,09:30:00,Coffee and breakfast,Starbucks,7.50
-2025-03-29,06:50:00,Public transport pass,Metro Transit,50.00
+2025-04-29,14:18:19,YearUp Salary,Year Up United,-50.00
+2025-04-29,07:45:00,Public transport pass,Metro Transit,-45.00
+2025-04-28,20:00:00,Streaming subscription,Netflix,-15.49
+2025-04-27,09:10:00,Car wash,Sparkle Clean,-15.00
+2025-04-26,15:15:00,Pet supplies,PetSmart,-40.00
+2025-04-25,18:00:00,Home improvement,Lowe's,-150.00
+2025-04-24,13:30:00,Lunch meeting,Chick-fil-A,-11.20
+2025-04-23,16:45:00,Client gift,Barnes & Noble,-30.00
+2025-04-22,11:00:00,New headphones,Best Buy,-99.99
+2025-04-21,19:20:00,Grocery run,Walmart,-85.75
+2025-04-20,08:00:00,Parking garage,City Parking,-12.00
+2025-04-19,17:30:00,Dinner and drinks,Olive Garden,-62.00
+2025-04-18,10:00:00,Taxi to meeting,Uber,-23.60
+2025-04-17,14:45:00,Office supplies,Staples,-56.40
+2025-04-16,12:15:00,Lunch with client,Panera Bread,-18.95
+2025-04-15,09:30:00,Coffee and breakfast,Starbucks,-7.50
+2025-03-29,06:50:00,Public transport pass,Metro Transit,-50.00
 2025-03-03,08:10:00,Rent payment,Landlord,-1200.00
-2025-02-15,19:10:00,Streaming subscription,Netflix,15.49
+2025-02-15,19:10:00,Streaming subscription,Netflix,-15.49
 2025-02-10,09:55:00,Tax payment,IRS,-1200.00
 2025-01-22,12:25:00,Health insurance premium,Blue Shield,-410.50
-2025-01-07,11:25:00,Car wash,Sparkle Clean,14.00
-2024-12-18,08:05:00,Pet supplies,PetSmart,42.35
+2025-01-07,11:25:00,Car wash,Sparkle Clean,-14.00
+2024-12-18,08:05:00,Pet supplies,PetSmart,-42.35
 2024-12-05,16:10:00,Online course fee,Coursera,-49.99
 2024-11-15,07:45:00,Charity donation,Red Cross,-100.00
-2024-11-02,16:30:00,Home improvement,Lowe's,135.00
+2024-11-02,16:30:00,Home improvement,Lowe's,-135.00
 2024-10-27,19:35:00,Student loan payment,Federal Loans,-325.00
-2024-10-11,13:40:00,Lunch meeting,Chick-fil-A,10.50
+2024-10-11,13:40:00,Lunch meeting,Chick-fil-A,-10.50
 2024-09-30,15:20:00,Subscription bundle,Apple Services,-29.99
-2024-09-19,15:10:00,Client gift,Barnes & Noble,25.00
+2024-09-19,15:10:00,Client gift,Barnes & Noble,-25.00
 2024-08-18,10:05:00,Credit card payment,Chase,-500.00
-2024-08-01,17:55:00,New headphones,Best Buy,120.00
-2024-07-23,14:20:00,Grocery run,Walmart,95.90
+2024-08-01,17:55:00,New headphones,Best Buy,-120.00
+2024-07-23,14:20:00,Grocery run,Walmart,-95.90
 2024-07-03,14:45:00,Medical copay,Clinic Health,-50.00
-2024-06-14,07:30:00,Parking garage,City Parking,11.00
+2024-06-14,07:30:00,Parking garage,City Parking,-11.00
 2024-06-08,17:00:00,Car insurance,Geico,-240.75
 2024-05-12,08:20:00,Mobile phone bill,AT&T,-80.99
-2024-05-09,18:45:00,Dinner and drinks,Olive Garden,67.30
+2024-05-09,18:45:00,Dinner and drinks,Olive Garden,-67.30
 2024-04-21,09:00:00,Taxi to meeting,Uber,28.75
 2024-04-20,13:00:00,Loan payment,Wells Fargo,-350.00
 2024-03-05,11:15:00,Utility bill,City Utilities,-135.40
-2024-03-05,10:15:00,Office supplies,Staples,34.20
-2024-02-10,12:30:00,Lunch with client,Panera Bread,19.50
+2024-03-05,10:15:00,Office supplies,Staples,-34.20
+2024-02-10,12:30:00,Lunch with client,Panera Bread,-19.50
 2024-02-01,09:00:00,Internet bill,Xfinity,-65.00
 2024-01-15,10:30:00,Monthly rent payment,Landlord,-1200.00
-2024-01-12,08:45:00,Coffee and breakfast,Starbucks,6.25
+2024-01-12,08:45:00,Coffee and breakfast,Starbucks,-6.25
+2024-01-05,09:00:00,Paycheck Deposit,Company Payroll,2100.00
+2024-02-02,09:00:00,Paycheck Deposit,Company Payroll,2100.00
+2024-02-20,10:30:00,Tax Refund,IRS,1150.50
+2024-03-01,09:00:00,Paycheck Deposit,Company Payroll,2100.00
+2024-04-01,09:00:00,Paycheck Deposit,Company Payroll,2100.00
+2024-04-15,11:15:00,Freelance Payment,Upwork,800.00
+2024-05-03,09:00:00,Paycheck Deposit,Company Payroll,2100.00
+2024-06-07,09:00:00,Paycheck Deposit,Company Payroll,2100.00
+2024-06-21,15:45:00,Client Reimbursement,Client Inc.,350.00
+2024-07-05,09:00:00,Paycheck Deposit,Company Payroll,2100.00
+2024-08-02,09:00:00,Paycheck Deposit,Company Payroll,2100.00
+2024-09-06,09:00:00,Paycheck Deposit,Company Payroll,2100.00
+2024-10-04,09:00:00,Paycheck Deposit,Company Payroll,2100.00
+2024-11-01,09:00:00,Paycheck Deposit,Company Payroll,2100.00
+2024-11-20,13:20:00,Holiday Bonus,Company Payroll,1000.00
+2024-12-06,09:00:00,Paycheck Deposit,Company Payroll,2100.00
+2025-01-03,09:00:00,Paycheck Deposit,Company Payroll,2100.00
+2025-02-07,09:00:00,Paycheck Deposit,Company Payroll,2100.00
+2025-03-07,09:00:00,Paycheck Deposit,Company Payroll,2100.00
+2025-03-21,10:00:00,Client Refund,Amazon,75.49
+2025-04-04,09:00:00,Paycheck Deposit,Company Payroll,2100.00

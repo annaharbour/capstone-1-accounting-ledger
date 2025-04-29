@@ -24,7 +24,7 @@ public class LedgerMap {
 //    here I'm constructing a new tree map of only those that meet the condition, which I'm passing in from
 //    LedgerEntries screen (payment/deposit)
     public static TreeMap<LocalDateTime, LedgerEntry> displayFiltered(Predicate<LedgerEntry> filter) {
-        TreeMap<LocalDateTime, LedgerEntry> filteredEntries = new TreeMap<>();
+        TreeMap<LocalDateTime, LedgerEntry> filteredEntries = new TreeMap<>(java.util.Collections.reverseOrder());
         for (Map.Entry<LocalDateTime, LedgerEntry> entry : entries.entrySet()) {
             if (filter.test(entry.getValue())) {
                 filteredEntries.put(entry.getKey(), entry.getValue());
