@@ -55,8 +55,6 @@ public class Reports {
                 default:
                     System.out.println("Invalid menu selection.");
             }
-            System.out.println("\nEnter to return to the menu.");
-            scanner.nextLine().trim();
         }
     }
 }

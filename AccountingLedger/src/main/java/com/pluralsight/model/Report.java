@@ -44,7 +44,7 @@ public class Report {
         System.out.println("\nPAYMENTS:");
         for (LedgerEntry payment : payments) {
             System.out.println(payment);
-            totalPayments += payment.getAmount();
+            totalPayments -= payment.getAmount();
         }
         System.out.printf("Total Payments: %.2f\n", totalPayments);
     }

@@ -32,7 +32,7 @@ public class CustomSearch {
         String endDateStr = scanner.nextLine();
         if (!endDateStr.isEmpty()) {
             try {
-                LocalDateTime end = LocalDateTime.parse(endDateStr);
+                LocalDateTime end = LocalDate.parse(endDateStr).plusDays(1).atStartOfDay();
                 filters.add(entry -> !entry.getDateTimeStamp().isAfter(end));
             } catch (DateTimeParseException e) {
                 System.out.println("Invalid date. Bypassing filter.");

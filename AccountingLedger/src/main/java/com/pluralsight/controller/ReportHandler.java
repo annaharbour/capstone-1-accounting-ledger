@@ -76,5 +76,10 @@ public class ReportHandler {
 
     public static void generateCustomReport(Scanner scanner){
         TreeMap<LocalDateTime, LedgerEntry> entries = CustomSearch.promptUser(scanner);
+        System.out.printf("\n\nYOUR CUSTOM REPORT:\n\n");
+        Report report = new Report(entries);
+        report.displayTransactions();
+        report.displayDeposits();
+        report.displayPayments();
     }
 }
