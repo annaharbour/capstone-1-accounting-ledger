@@ -8,15 +8,14 @@ public class Ledger {
 
     public static void displayMenu() {
         for (String option : menuOptions) {
-            System.out.println("\t\n" + option);
+            System.out.printf("\n\t %s", option);
         }
     }
 
     public static void returnToMenu(Scanner scanner){
         System.out.println("\nPress Enter to return to the menu...");
-        if (scanner.hasNextLine()) {
             scanner.nextLine();
-        }
+
     }
 
     public static void makeSelection(Scanner scanner) {
