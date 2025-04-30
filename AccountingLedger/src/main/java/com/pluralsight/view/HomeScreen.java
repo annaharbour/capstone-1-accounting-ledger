@@ -11,7 +11,6 @@ public class HomeScreen {
         for (String option : menuOptions) {
             System.out.printf("\n\t %s\n", option);
         }
-        System.out.println();
     }
 
     public static boolean makeSelection(Scanner scanner) {
@@ -21,22 +20,24 @@ public class HomeScreen {
             case "D":
                 System.out.println("Make a deposit: \n");
                 Transaction.handleTransaction(menuSelection, scanner);
+                UIUtils.clearScreen();
                 break;
             case "P":
                 System.out.println("Make a payment: \n");
                 Transaction.handleTransaction(menuSelection, scanner);
+                UIUtils.clearScreen();
                 break;
             case "L":
                 Ledger.makeSelection(scanner);
+                UIUtils.clearScreen();
                 break;
             case "X":
-                System.out.println("Goodbye\n");
+                System.out.println("Goodbye...\n");
                 scanner.close();
                 return false;
             default:
                 System.out.println("Invalid menu selection.");
         }
-        UIUtils.clearScreen();
         return true;
     }
 }

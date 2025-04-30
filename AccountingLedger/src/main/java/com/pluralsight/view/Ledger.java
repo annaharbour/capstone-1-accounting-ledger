@@ -8,14 +8,13 @@ public class Ledger {
 
     public static void displayMenu() {
         for (String option : menuOptions) {
-            System.out.printf("\n\t %s", option);
+            System.out.printf("\n\t %s\n", option);
         }
     }
 
     public static void returnToMenu(Scanner scanner){
         System.out.println("\nPress Enter to return to the menu...");
             scanner.nextLine();
-
     }
 
     public static void makeSelection(Scanner scanner) {
@@ -44,7 +43,8 @@ public class Ledger {
                 case "H":
                     return;
                 default:
-                    System.out.println("Invalid menu selection.");
+                    UIUtils.printColored("Invalid menu selection", "red");
+//                    System.out.println("Invalid menu selection.");
             }
         }
     }

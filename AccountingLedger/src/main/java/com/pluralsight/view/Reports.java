@@ -12,9 +12,8 @@ public class Reports {
     public static void displayMenu() {
         System.out.println("\nWhat kind of report would you like to generate?");
         for (String option : menuOptions) {
-            System.out.printf("\n\t %s", option);
+            System.out.printf("\n\t %s\n", option);
         }
-        System.out.println("\n");
     }
 
     public static String promptForVendor(Scanner scanner) {
@@ -25,9 +24,7 @@ public class Reports {
 
     public static void returnToMenu(Scanner scanner){
         System.out.println("\nPress Enter to return to the menu...");
-        if (scanner.hasNextLine()) {
-            scanner.nextLine();
-        }
+        scanner.nextLine();
     }
 
     public static String makeSelection(Scanner scanner) {

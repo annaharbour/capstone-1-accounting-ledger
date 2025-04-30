@@ -57,6 +57,7 @@ public class CustomSearch {
             try {
                 float amount = Float.parseFloat(amountStr);
                 filters.add(entry -> entry.getAmount() == amount);
+                scanner.nextLine();
             } catch (NumberFormatException e) {
                 System.out.println("Invalid value. Bypassing filter.");
             }

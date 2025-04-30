@@ -17,9 +17,8 @@ public class Transaction {
             System.out.println("Enter a description for the ledger entry:\n");
             description = scanner.nextLine().trim();
             if (description.isEmpty()) {
-                System.out.println("Description cannot be empty. lease try again or type \\\"H\\\" to return to the \" +\n" +
-                        "                        \"home screen\" +\n" +
-                        "                        \".\"");
+                System.out.println("Description required. Please try again or type \"H\" to return to the home screen" +
+                        ".\n");
                 String returnChoice = scanner.nextLine().trim().toLowerCase();
                 if (returnChoice.equalsIgnoreCase("H")) {
                     return;
@@ -31,9 +30,8 @@ public class Transaction {
             System.out.println("Enter the vendor:\n");
             vendor = scanner.nextLine().trim();
             if (vendor.isEmpty()) {
-                System.out.println("Vendor cannot be empty. Please try again or type \"H\" to return to the " +
-                        "home screen" +
-                        ".");
+                System.out.println("Vendor required. Please try again or type \"H\" to return to the home screen" +
+                        ".\n");
                 String returnChoice = scanner.nextLine().trim().toLowerCase();
                 if (returnChoice.equalsIgnoreCase("H")) {
                     return;
@@ -47,10 +45,10 @@ public class Transaction {
                 transactionValue = Math.abs(scanner.nextFloat());
                 validAmount = true;
             } catch (InputMismatchException e) {
-                System.out.println("Invalid input. lease try again or type \\\"H\\\" to return to the \" +\n" +
-                        "                        \"home screen\" +\n" +
-                        "                        \".\"");
-                scanner.next();
+                System.out.println("Invalid amount input. Please try again or type \"H\" to return to the home screen" +
+                        ".\n");
+//                scanner.next();
+                scanner.nextLine();
                 String returnChoice = scanner.nextLine().trim().toLowerCase();
                 if (returnChoice.equalsIgnoreCase("H")) {
                     return;
