@@ -12,7 +12,7 @@ public class UIUtils {
         Ledger.displayMenu();
     }
 
-    static void printColored(String message, String colorName) {
+    public static void printColored(String message, String colorName) {
         String colorCode;
         switch (colorName.toLowerCase()) {
             case "black":
@@ -71,7 +71,7 @@ public class UIUtils {
                         "                                $$$$$$$$$$$                              \n",
                 "green");
         printColored(
-                "                   Welcome to Anna's Accounting Ledger\n", "\u001b[36m");
+                "                   Welcome to Anna's Accounting Ledger\n", "magenta");
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {

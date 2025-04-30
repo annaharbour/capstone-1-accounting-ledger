@@ -1,5 +1,7 @@
 package com.pluralsight.model;
 
+import com.pluralsight.view.UIUtils;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.TreeMap;
@@ -34,10 +36,12 @@ public class Report {
     public void displayDeposits() {
         System.out.println("\nDEPOSITS:");
         for (LedgerEntry deposit : deposits) {
-            System.out.println(deposit);
+//            System.out.println(deposit);
+            UIUtils.printColored(deposit.toString(), "green");
+
             totalDeposits += deposit.getAmount();
         }
-        System.out.printf("Total Deposits: %.2f\n", totalDeposits);
+        UIUtils.printColored(String.format("Total Deposits: %.2f\n", totalDeposits), "green");
     }
 
     public void displayPayments() {

@@ -7,6 +7,7 @@ public class HomeScreen {
             "Program"};
 
     public static void displayMenu() {
+        UIUtils.clearScreen();
         System.out.println("What would you like to do? Select from the following options: ");
         for (String option : menuOptions) {
             System.out.printf("\n\t %s\n", option);
@@ -36,7 +37,12 @@ public class HomeScreen {
                 scanner.close();
                 return false;
             default:
-                System.out.println("Invalid menu selection.");
+                UIUtils.printColored("Invalid menu selection", "red");
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
         }
         return true;
     }

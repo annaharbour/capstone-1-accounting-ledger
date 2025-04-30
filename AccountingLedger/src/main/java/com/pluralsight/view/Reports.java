@@ -22,9 +22,10 @@ public class Reports {
         return vendorName;
     }
 
-    public static void returnToMenu(Scanner scanner){
+    public static void returnToMenu(Scanner scanner) {
         System.out.println("\nPress Enter to return to the menu...");
         scanner.nextLine();
+
     }
 
     public static String makeSelection(Scanner scanner) {
@@ -62,7 +63,12 @@ public class Reports {
                 case "H":
                     return "HOME";
                 default:
-                    System.out.println("Invalid menu selection.");
+                    UIUtils.printColored("Invalid menu selection", "red");
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
             }
         }
     }
