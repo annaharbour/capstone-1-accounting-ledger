@@ -7,20 +7,20 @@ public class Ledger {
             "R) Reports", "H) Return to Home Screen"};
 
     public static void displayMenu() {
+        System.out.println("\nWelcome to the digital ledger - please choose from the following options: \n");
         for (String option : menuOptions) {
-            System.out.println("\t\n" + option);
+            System.out.printf("\n\t %s\n", option);
         }
     }
 
-    public static void returnToMenu(Scanner scanner){
+    public static void returnToMenu(Scanner scanner) {
         System.out.println("\nPress Enter to return to the menu...");
-        if (scanner.hasNextLine()) {
-            scanner.nextLine();
-        }
+        scanner.nextLine();
     }
 
     public static void makeSelection(Scanner scanner) {
-        while(true) {
+        while (true) {
+            UIUtils.clearScreen();
             displayMenu();
             String menuSelection = scanner.nextLine().trim().toUpperCase();
             switch (menuSelection) {
@@ -45,7 +45,12 @@ public class Ledger {
                 case "H":
                     return;
                 default:
-                    System.out.println("Invalid menu selection.");
+                    UIUtils.printColored("Invalid menu selection", "red");
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
             }
         }
     }

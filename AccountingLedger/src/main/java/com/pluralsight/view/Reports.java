@@ -12,9 +12,8 @@ public class Reports {
     public static void displayMenu() {
         System.out.println("\nWhat kind of report would you like to generate?");
         for (String option : menuOptions) {
-            System.out.printf("\n\t %s", option);
+            System.out.printf("\n\t %s\n", option);
         }
-        System.out.println("\n");
     }
 
     public static String promptForVendor(Scanner scanner) {
@@ -23,10 +22,12 @@ public class Reports {
         return vendorName;
     }
 
-    public static void returnToMenu(Scanner scanner){
+    public static void returnToMenu(Scanner scanner) {
+//        System.out.println("\nPress Enter to return to the menu...");
+//        scanner.nextLine();
         System.out.println("\nPress Enter to return to the menu...");
         if (scanner.hasNextLine()) {
-            scanner.nextLine();
+            scanner.nextLine(); // Clear the buffer
         }
     }
 
@@ -65,7 +66,12 @@ public class Reports {
                 case "H":
                     return "HOME";
                 default:
-                    System.out.println("Invalid menu selection.");
+                    UIUtils.printColored("Invalid menu selection", "red");
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
             }
         }
     }
