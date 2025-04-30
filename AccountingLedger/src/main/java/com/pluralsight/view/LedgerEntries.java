@@ -11,7 +11,8 @@ public class LedgerEntries {
         System.out.println("PAYMENTS: \n");
         TreeMap<LocalDateTime, LedgerEntry> payments = LedgerMap.displayFiltered(entry -> entry.getAmount() < 0);
         for (LedgerEntry payment : payments.values()) {
-            System.out.println(payment.toString());
+//            System.out.println(payment.toString());
+            UIUtils.printColored(payment.toString(), "yellow");
         }
     }
 
@@ -19,7 +20,8 @@ public class LedgerEntries {
         System.out.println("DEPOSITS: \n");
         TreeMap<LocalDateTime, LedgerEntry> deposits = LedgerMap.displayFiltered(entry -> entry.getAmount() > 0);
         for (LedgerEntry deposit : deposits.values()) {
-            System.out.println(deposit.toString());
+//            System.out.println(deposit.toString());
+            UIUtils.printColored(deposit.toString(), "green");
         }
     }
 
@@ -27,7 +29,8 @@ public class LedgerEntries {
         System.out.println("Displaying all entries...");
         TreeMap<LocalDateTime, LedgerEntry> entries = LedgerMap.getEntries();
         for (LedgerEntry entry : entries.values()) {
-            System.out.println(entry.toString());
+//            System.out.println(entry.toString());
+            UIUtils.printColored(entry.toString(), "magenta");
         }
     }
 }

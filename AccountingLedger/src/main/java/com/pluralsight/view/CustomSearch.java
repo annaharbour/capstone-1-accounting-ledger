@@ -24,7 +24,9 @@ public class CustomSearch {
                 LocalDateTime start = LocalDate.parse(startDateStr).atStartOfDay();
                 filters.add(entry -> !entry.getDateTimeStamp().isBefore(start));
             } catch (DateTimeParseException e) {
-                System.out.println("Invalid date. Bypassing filter.");
+//                System.out.println("Invalid or empty date. Bypassing filter.");
+                UIUtils.printColored("Invalid or empty date. Bypassing filter.", "magenta");
+
             }
         }
 
@@ -35,7 +37,7 @@ public class CustomSearch {
                 LocalDateTime end = LocalDate.parse(endDateStr).plusDays(1).atStartOfDay();
                 filters.add(entry -> !entry.getDateTimeStamp().isAfter(end));
             } catch (DateTimeParseException e) {
-                System.out.println("Invalid date. Bypassing filter.");
+                UIUtils.printColored("Invalid or empty date. Bypassing filter.", "magenta");
             }
         }
 
@@ -43,12 +45,16 @@ public class CustomSearch {
         String description = scanner.nextLine();
         if (!description.isEmpty()) {
             filters.add(entry -> entry.getDescription().toLowerCase().contains(description.toLowerCase()));
+        } else {
+            UIUtils.printColored("Bypassing description.", "magenta");
         }
 
         System.out.println("Vendor: ");
         String vendor = scanner.nextLine();
         if (!vendor.isEmpty()) {
             filters.add(entry -> entry.getVendor().equalsIgnoreCase(vendor));
+        } else {
+            UIUtils.printColored("Bypassing vendor.", "magenta");
         }
 
         System.out.println("Amount: ");
@@ -59,7 +65,7 @@ public class CustomSearch {
                 filters.add(entry -> entry.getAmount() == amount);
                 scanner.nextLine();
             } catch (NumberFormatException e) {
-                System.out.println("Invalid value. Bypassing filter.");
+                UIUtils.printColored("Invalid or empty amount. Bypassing filter.", "magenta");
             }
         }
 

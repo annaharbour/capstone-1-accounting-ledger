@@ -50,7 +50,6 @@ public class Transaction {
                 UIUtils.printColored(
                         "Invalid amount input. Please try again or type \"H\" to return to the home screen" +
                                 ".\n", "red");
-//                scanner.next();
                 scanner.nextLine();
                 String returnChoice = scanner.nextLine().trim().toLowerCase();
                 if (returnChoice.equalsIgnoreCase("H")) {

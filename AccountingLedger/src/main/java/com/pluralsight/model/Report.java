@@ -22,23 +22,21 @@ public class Report {
         System.out.println("\nTRANSACTIONS:");
         for (LedgerEntry entry : this.entries.values()) {
             balance += entry.getAmount();
-            System.out.println(entry);
-
+            UIUtils.printColored(entry.toString(), "magenta");
             if (entry.getAmount() <= 0) {
                 payments.add(entry);
             } else {
                 deposits.add(entry);
             }
         }
-        System.out.printf("Balance: %.2f\n", balance);
+        UIUtils.printColored(String.format("Balance: %.2f\n", balance), "magenta");
+
     }
 
     public void displayDeposits() {
         System.out.println("\nDEPOSITS:");
         for (LedgerEntry deposit : deposits) {
-//            System.out.println(deposit);
             UIUtils.printColored(deposit.toString(), "green");
-
             totalDeposits += deposit.getAmount();
         }
         UIUtils.printColored(String.format("Total Deposits: %.2f\n", totalDeposits), "green");
@@ -47,9 +45,10 @@ public class Report {
     public void displayPayments() {
         System.out.println("\nPAYMENTS:");
         for (LedgerEntry payment : payments) {
-            System.out.println(payment);
+            UIUtils.printColored(payment.toString(), "yellow");
             totalPayments -= payment.getAmount();
         }
-        System.out.printf("Total Payments: %.2f\n", totalPayments);
+        UIUtils.printColored(String.format("Total Payments: %.2f\n", totalPayments), "yellow");
+
     }
 }
