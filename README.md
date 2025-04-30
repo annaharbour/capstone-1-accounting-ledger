@@ -35,9 +35,6 @@ All ledger entries are saved to a file named `transactions.csv` in the following
 
 date|time|description|vendor|amount
 
-2023-04-15|10:13:25|ergonomic keyboard|Amazon|-89.50
-
-2023-04-15|11:15:00|Invoice 1001 paid|Joe|1500.00
 ![Screenshot 2025-04-30 15 51 18](https://github.com/user-attachments/assets/218282a9-445e-4f7a-9b0e-b1d0730b475a)
 
 
