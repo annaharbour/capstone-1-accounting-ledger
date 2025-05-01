@@ -32,6 +32,15 @@ public class FileHandler extends DataHandler {
     @Override
     public LedgerMap load() {
         LedgerMap ledger = new LedgerMap();
+        File file = new File(FILE_NAME);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+                return new LedgerMap();
+            } catch (IOException e) {
+                System.err.println("Error loading ledger from file: " + e.getMessage());
+            }
+        }
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             reader.readLine(); // Skip header
             String line;
