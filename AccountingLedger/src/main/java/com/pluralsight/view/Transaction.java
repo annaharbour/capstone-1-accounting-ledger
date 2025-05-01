@@ -21,7 +21,7 @@ public class Transaction {
                         "screen" +
                         ".\n", "red");
                 String returnChoice = scanner.nextLine().trim().toLowerCase();
-                if (returnChoice.equalsIgnoreCase("H")) {
+                if (returnChoice.equalsIgnoreCase("h")) {
                     return;
                 }
             }
@@ -45,6 +45,7 @@ public class Transaction {
             System.out.println("Enter the amount:\n");
             try {
                 transactionValue = Math.abs(scanner.nextFloat());
+                scanner.nextLine();
                 validAmount = true;
             } catch (InputMismatchException e) {
                 UIUtils.printColored(
@@ -57,7 +58,7 @@ public class Transaction {
                 }
             }
         } while (!validAmount);
-
+        System.out.println("Enter to return to menu.");
         scanner.nextLine();
         TransactionHandler.addEntry(description, vendor, menuSelection, transactionValue);
     }

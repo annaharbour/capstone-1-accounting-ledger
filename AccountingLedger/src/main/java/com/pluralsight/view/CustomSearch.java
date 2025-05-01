@@ -63,7 +63,7 @@ public class CustomSearch {
             try {
                 float amount = Float.parseFloat(amountStr);
                 filters.add(entry -> entry.getAmount() == amount);
-                scanner.nextLine();
+//                scanner.nextLine();
             } catch (NumberFormatException e) {
                 UIUtils.printColored("Invalid or empty amount. Bypassing filter.", "magenta");
             }
