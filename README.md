@@ -117,3 +117,27 @@ public class FileHandler extends DataHandler {
 }
 
 ```
+## Project Structure
+
+project-root/
+├── pom.xml
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   ├── com/
+│   │   │   │   ├── pluralsight/
+│   │   │   │   │   ├── AccountingLedgerApp.java
+│   │   │   │   │   ├── controller/
+│   │   │   │   │   │   ├── TransactionHandler.java
+│   │   │   │   │   │   ├── ReportHandler.java
+│   │   │   │   │   ├── data/
+│   │   │   │   │   │   ├── DataHandler.java
+│   │   │   │   │   ├── model/
+│   │   │   │   │   │   ├── LedgerEntry.java
+│   │   │   │   │   │   ├── LedgerMap.java
+│   │   │   │   │   ├── view/
+│   │   │   │   │   │   ├── HomeScreen.java
+│   │   │   │   │   │   ├── LedgerEntries.java
+│   │   │   │   │   │   ├── Reports.java
+│   │   │   │   │   │   ├── Transaction.java
+│   │   │   │   │   │   ├── UIUtils.java
