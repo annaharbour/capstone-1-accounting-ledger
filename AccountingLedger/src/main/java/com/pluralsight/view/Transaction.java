@@ -14,12 +14,11 @@ public class Transaction {
         boolean validAmount = false;
 
         do {
-            System.out.println("Enter a description for the ledger entry:\n");
+            System.out.println("\nEnter a description for the ledger entry:");
             description = scanner.nextLine().trim();
             if (description.isEmpty()) {
                 UIUtils.printColored("Description required. Enter to try again or type \"H\" to return to the home " +
-                        "screen" +
-                        ".\n", "red");
+                        "screen.", "red");
                 String returnChoice = scanner.nextLine().trim().toLowerCase();
                 if (returnChoice.equalsIgnoreCase("h")) {
                     return;
@@ -28,12 +27,11 @@ public class Transaction {
         } while (description.isEmpty());
 
         do {
-            System.out.println("Enter the vendor:\n");
+            System.out.println("\nEnter the vendor:\n");
             vendor = scanner.nextLine().trim();
             if (vendor.isEmpty()) {
                 UIUtils.printColored(
-                        "Vendor required. Enter to try again or type \"H\" to return to the home screen" +
-                                ".\n", "red");
+                        "Vendor required. Enter to try again or type \"H\" to return to the home screen.", "red");
                 String returnChoice = scanner.nextLine().trim().toLowerCase();
                 if (returnChoice.equalsIgnoreCase("H")) {
                     return;
@@ -49,7 +47,7 @@ public class Transaction {
                 validAmount = true;
             } catch (InputMismatchException e) {
                 UIUtils.printColored(
-                        "Invalid amount input. Try again: ", "red");
+                        "Invalid amount input. Try again.", "red");
                 scanner.nextLine();
                 String returnChoice = scanner.nextLine().trim().toLowerCase();
                 if (returnChoice.equalsIgnoreCase("H")) {
