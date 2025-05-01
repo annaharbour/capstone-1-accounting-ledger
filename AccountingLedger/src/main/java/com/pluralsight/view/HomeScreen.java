@@ -20,13 +20,13 @@ public class HomeScreen {
         switch (menuSelection) {
             case "D":
                 UIUtils.clearScreen();
-                System.out.println("Make a deposit: \n");
+                System.out.println("Make a deposit:");
                 Transaction.handleTransaction(menuSelection, scanner);
                 UIUtils.clearScreen();
                 break;
             case "P":
                 UIUtils.clearScreen();
-                System.out.println("Make a payment: \n");
+                System.out.println("Make a payment:");
                 Transaction.handleTransaction(menuSelection, scanner);
                 UIUtils.clearScreen();
                 break;

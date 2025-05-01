@@ -27,7 +27,7 @@ public class Transaction {
         } while (description.isEmpty());
 
         do {
-            System.out.println("\nEnter the vendor:\n");
+            System.out.println("\nEnter the vendor:");
             vendor = scanner.nextLine().trim();
             if (vendor.isEmpty()) {
                 UIUtils.printColored(
@@ -40,7 +40,7 @@ public class Transaction {
         } while (vendor.isEmpty());
 
         do {
-            System.out.println("Enter the amount:\n");
+            System.out.println("\nEnter the amount:");
             try {
                 transactionValue = Math.abs(scanner.nextFloat());
                 scanner.nextLine();
