@@ -24,7 +24,6 @@ public class CustomSearch {
                 LocalDateTime start = LocalDate.parse(startDateStr).atStartOfDay();
                 filters.add(entry -> !entry.getDateTimeStamp().isBefore(start));
             } catch (DateTimeParseException e) {
-//                System.out.println("Invalid or empty date. Bypassing filter.");
                 UIUtils.printColored("Invalid or empty date. Bypassing filter.", "magenta");
 
             }

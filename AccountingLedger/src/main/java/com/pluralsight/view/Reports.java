@@ -24,41 +24,48 @@ public class Reports {
 
     public static void returnToMenu(Scanner scanner) {
       System.out.println("\nPress Enter to return to the menu...");
-//        if (scanner.hasNextLine()) {
+        if (scanner.hasNextLine()) {
             scanner.nextLine();
-//        }
+        }
+        UIUtils.clearScreen();
     }
 
     public static String makeSelection(Scanner scanner) {
+        UIUtils.clearScreen();
         while (true) {
-            UIUtils.clearScreen();
             displayMenu();
             String menuSelection = scanner.nextLine().trim().toUpperCase();
             switch (menuSelection) {
                 case "0":
                     return "LEDGER";
                 case "1":
+                    UIUtils.clearScreen();
                     ReportHandler.generateMonthToDateReport();
                     returnToMenu(scanner);
                     break;
                 case "2":
+                    UIUtils.clearScreen();
                     ReportHandler.generatePreviousMonthReport();
                     returnToMenu(scanner);
                     break;
                 case "3":
+                    UIUtils.clearScreen();
                     ReportHandler.generateYearToDateReport();
                     returnToMenu(scanner);
                     break;
                 case "4":
+                    UIUtils.clearScreen();
                     ReportHandler.generatePreviousYearReport();
                     returnToMenu(scanner);
                     break;
                 case "5":
+                    UIUtils.clearScreen();
                     String vendorName = promptForVendor(scanner);
                     ReportHandler.generateReportByVendor(vendorName);
                     returnToMenu(scanner);
                     break;
                 case "6":
+                    UIUtils.clearScreen();
                     ReportHandler.generateCustomReport(scanner);
                     returnToMenu(scanner);
                     break;

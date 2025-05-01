@@ -25,14 +25,17 @@ public class Ledger {
             String menuSelection = scanner.nextLine().trim().toUpperCase();
             switch (menuSelection) {
                 case "A":
+                    UIUtils.clearScreen();
                     LedgerEntries.displayAll();
                     returnToMenu(scanner);
                     break;
                 case "D":
+                    UIUtils.clearScreen();
                     LedgerEntries.displayDeposits();
                     returnToMenu(scanner);
                     break;
                 case "P":
+                    UIUtils.clearScreen();
                     LedgerEntries.displayPayments();
                     returnToMenu(scanner);
                     break;

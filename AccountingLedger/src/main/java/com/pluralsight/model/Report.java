@@ -39,7 +39,9 @@ public class Report {
             UIUtils.printColored(deposit.toString(), "green");
             totalDeposits += deposit.getAmount();
         }
-        UIUtils.printColored(String.format("Total Deposits: %.2f\n", totalDeposits), "green");
+        if(totalDeposits != 0) {
+            UIUtils.printColored(String.format("Total Deposits: %.2f\n", totalDeposits), "green");
+        }
     }
 
     public void displayPayments() {
@@ -48,7 +50,8 @@ public class Report {
             UIUtils.printColored(payment.toString(), "yellow");
             totalPayments -= payment.getAmount();
         }
-        UIUtils.printColored(String.format("Total Payments: %.2f\n", totalPayments), "yellow");
-
+        if(totalPayments != 0) {
+            UIUtils.printColored(String.format("Total Payments: %.2f\n", totalPayments), "yellow");
+        }
     }
 }

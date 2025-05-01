@@ -17,7 +17,7 @@ public class Transaction {
             System.out.println("Enter a description for the ledger entry:\n");
             description = scanner.nextLine().trim();
             if (description.isEmpty()) {
-                UIUtils.printColored("Description required. Please try again or type \"H\" to return to the home " +
+                UIUtils.printColored("Description required. Enter to try again or type \"H\" to return to the home " +
                         "screen" +
                         ".\n", "red");
                 String returnChoice = scanner.nextLine().trim().toLowerCase();
@@ -32,7 +32,7 @@ public class Transaction {
             vendor = scanner.nextLine().trim();
             if (vendor.isEmpty()) {
                 UIUtils.printColored(
-                        "Vendor required. Please try again or type \"H\" to return to the home screen" +
+                        "Vendor required. Enter to try again or type \"H\" to return to the home screen" +
                                 ".\n", "red");
                 String returnChoice = scanner.nextLine().trim().toLowerCase();
                 if (returnChoice.equalsIgnoreCase("H")) {
@@ -49,8 +49,7 @@ public class Transaction {
                 validAmount = true;
             } catch (InputMismatchException e) {
                 UIUtils.printColored(
-                        "Invalid amount input. Please try again or type \"H\" to return to the home screen" +
-                                ".\n", "red");
+                        "Invalid amount input. Try again: ", "red");
                 scanner.nextLine();
                 String returnChoice = scanner.nextLine().trim().toLowerCase();
                 if (returnChoice.equalsIgnoreCase("H")) {

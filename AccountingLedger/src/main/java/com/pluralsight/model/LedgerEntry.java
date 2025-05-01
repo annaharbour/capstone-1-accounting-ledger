@@ -60,7 +60,11 @@ public class LedgerEntry {
 
     @Override
     public String toString() {
-        return this.getFormattedDate() + "|" + this.getFormattedTime() + "|" + description + "|" + vendor + "|" + String.format(
-                "%.2f", amount);
+        return String.format("%-20s%-20s%-30s%-30s%-10.2f\n",
+                this.getFormattedDate(),
+                this.getFormattedTime(),
+                description,
+                vendor,
+                amount);
     }
 }

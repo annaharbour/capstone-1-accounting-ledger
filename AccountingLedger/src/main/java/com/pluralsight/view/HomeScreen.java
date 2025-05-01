@@ -19,11 +19,13 @@ public class HomeScreen {
         String menuSelection = scanner.nextLine().trim().toUpperCase();
         switch (menuSelection) {
             case "D":
+                UIUtils.clearScreen();
                 System.out.println("Make a deposit: \n");
                 Transaction.handleTransaction(menuSelection, scanner);
                 UIUtils.clearScreen();
                 break;
             case "P":
+                UIUtils.clearScreen();
                 System.out.println("Make a payment: \n");
                 Transaction.handleTransaction(menuSelection, scanner);
                 UIUtils.clearScreen();
@@ -33,8 +35,15 @@ public class HomeScreen {
                 UIUtils.clearScreen();
                 break;
             case "X":
+                UIUtils.clearScreen();
                 System.out.println("Goodbye...\n");
                 scanner.close();
+                try {
+                    Thread.sleep(1500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                UIUtils.clearScreen();
                 return false;
             default:
                 UIUtils.printColored("Invalid menu selection", "red");
