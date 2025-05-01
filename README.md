@@ -32,31 +32,93 @@ Users can add deposits and payments to their ledger, filter and view view transa
 
 All ledger entries are saved to a file named `transactions.csv` in the following format:
 
-
 date|time|description|vendor|amount
 
 ![Screenshot 2025-04-30 15 51 18](https://github.com/user-attachments/assets/218282a9-445e-4f7a-9b0e-b1d0730b475a)
+
+##  📸 Screenshots
+
+Flash Screen / Home Screen
+
+![Screenshot 2025-05-01 15 38 40](https://github.com/user-attachments/assets/575ea1f7-5770-469e-bbf8-73c25f42e8ba)![Screenshot 2025-05-01 15 39 42](https://github.com/user-attachments/assets/2adf0c0d-d882-48bc-95ce-2e56313d4a44)
+
+Add a Deposit or Payment
+
+![Screenshot 2025-05-01 15 40 26](https://github.com/user-attachments/assets/a530b38d-d14f-46a3-b2af-93e8b073f0a3)![Screenshot 2025-05-01 15 43 50](https://github.com/user-attachments/assets/6d2407ad-5b60-4039-9557-ae7210c27639)
+
+
+Ledger: All Entries / Payments / Deposits
+
+![Screenshot 2025-05-01 16 09 27](https://github.com/user-attachments/assets/ac0f338d-288a-432f-a9f8-3caddf7c171d)
+
+![Screenshot 2025-05-01 15 45 52](https://github.com/user-attachments/assets/32608c87-73fd-4b54-ae8f-fdf88687ed66)
+
+Reports Examples:
+
+![Screenshot 2025-05-01 16 10 19](https://github.com/user-attachments/assets/c2d0fc9a-0893-454d-9f60-1814029a6c68)
+
+![Screenshot 2025-05-01 15 46 38](https://github.com/user-attachments/assets/b7e9ae16-ab01-4093-8769-fc2e6482725f)
+![Screenshot 2025-05-01 15 46 38](https://github.com/user-attachments/assets/1879dbad-076d-4cc4-8e73-240bacc690c1)
+![Screenshot 2025-05-01 15 51 02](https://github.com/user-attachments/assets/3468a1ef-dd65-4929-8003-fe9bfeb43d34)
 
 
 
 ## 📌 Interesting Code Snippets
 
-One interesting piece of logic in this application is the dynamic filtering in the **Custom Search** feature. It allows users to input any combination of search fields, and the program applies only the filters provided:
+### 🧠 State Management Using a Tree Map
+
+*** ➤ Why TreeMap? ***
+- **Sorted Order:** TreeMap maintains sorted keys – in this case, `LocalDateTime` – enabling efficient chronological storage and retrieval.
+- **Reverse Chronological View:** Using `Collections.reverseOrder()` ensures the newest entries appear first, ideal for user display without additional sorting logic.
+- **Efficient Filtering:** Leveraging Java’s functional interfaces (e.g., `Predicate<LedgerEntry>`), we can easily implement flexible, on-the-fly filters without restructuring the data.
+- **Single Source of Truth:** The TreeMap acts as the application's stateful in-memory data model that reflects all loaded or user-added transactions.
 
 ```java
-if (!startDateInput.isEmpty()) {
-    filteredList = filteredList.stream()
-        .filter(entry -> !entry.getDate().isBefore(LocalDate.parse(startDateInput)))
-        .collect(Collectors.toList());
+public class LedgerMap {
+    //    Make a tree map with all the entries listed newest first
+    private static TreeMap<LocalDateTime, LedgerEntry> entries = new TreeMap<>(java.util.Collections.reverseOrder());
+
+    //    add entry to tree map
+    public static void addEntry(LedgerEntry entry) {
+        entries.put(entry.getDateTimeStamp(), entry);
+    }
+
+    //    get all entries, unfiltered
+    public static TreeMap<LocalDateTime, LedgerEntry> getEntries() {
+        return entries;
+    }
+
+    //    https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html
+//    Predicate evaluates using parameters of test method
+//    here I'm constructing a new tree map of only those that meet the condition, which I'm passing in from
+//    LedgerEntries screen (payment/deposit)
+    public static TreeMap<LocalDateTime, LedgerEntry> displayFiltered(Predicate<LedgerEntry> filter) {
+        TreeMap<LocalDateTime, LedgerEntry> filteredEntries = new TreeMap<>(java.util.Collections.reverseOrder());
+        for (Map.Entry<LocalDateTime, LedgerEntry> entry : entries.entrySet()) {
+            if (filter.test(entry.getValue())) {
+                filteredEntries.put(entry.getKey(), entry.getValue());
+            }
+        }
+        return filteredEntries;
+    }
+
 }
 
-if (!vendorInput.isEmpty()) {
-    filteredList = filteredList.stream()
-        .filter(entry -> entry.getVendor().equalsIgnoreCase(vendorInput))
-        .collect(Collectors.toList());
-}
 ```
-Another interesting architectural decision is the extension of a DataHandler class to create the FileHandler which writes and reads from the transactions csv. This allows for the easy integration of other forms of data handler, such as a SQL database, with minimal to no code changes throughout the rest of the app.
+
+### ➤ What is being done:
+The application uses a `TreeMap<LocalDateTime, LedgerEntry>` (in reverse order) to store all ledger entries in memory.
+
+---
+
+### 💾 Data Persistence: CSV + Abstraction Layer
+
+*** ➤ File-Based Storage:***
+The application persists entries to a CSV file (`transactions.csv`) via the `FileHandler` class.
+
+### ➤ Design Pattern Used:
+`FileHandler` **extends** the abstract class `DataHandler`.
+
 
 ```java
 
@@ -117,3 +179,32 @@ public class FileHandler extends DataHandler {
 }
 
 ```
+
+### ➤ Why this abstraction matters:
+- This architectural choice cleanly separates **data format/IO logic** from **business logic**.
+- The app only references `DataHandler`, so swapping out storage (e.g., moving from file to database) requires:
+  1. Implementing a new subclass like `DatabaseHandler`
+  2. Changing **one line** in the app:
+     ```java
+     private static DataHandler dataHandler = DataHandler.createHandler();
+     ```
+  Inside `createHandler()`, you can return the database version instead.
+---
+
+## 📦 Summary of Key Architectural Choices
+
+| Component        | Purpose                                                                 | Benefit                                                   |
+|------------------|-------------------------------------------------------------------------|------------------------------------------------------------|
+| `TreeMap`        | Holds ledger entries sorted by `LocalDateTime`                         | Sorted order, fast access, reverse view for UI display     |
+| `LedgerMap`      | Encapsulates TreeMap and provides filter capabilities                  | Centralized state with reusable filtering logic            |
+| `DataHandler`    | Abstract base for data persistence                                     | Makes it easy to swap between File/DB without rewriting app|
+| `FileHandler`    | Concrete class for CSV storage                                         | Lightweight, file-based storage                            |
+| `createHandler()`| Factory method to choose storage method                                | One-line switch from file to DB                            |
+
+---
+
+## 🧩 Next Steps / Extensibility Ideas
+
+- Implement a `DatabaseHandler` for SQL-based persistence.
+- Add GUI or web front-end for broader usability.
+- Enhance filtering and reporting features using the predicate system.
