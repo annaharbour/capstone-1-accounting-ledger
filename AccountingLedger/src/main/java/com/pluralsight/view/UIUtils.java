@@ -4,7 +4,7 @@ public class UIUtils {
     public static void main(String[] args) {
         displayDollarSign();
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -46,7 +46,7 @@ public class UIUtils {
     }
 
     public static void clearScreen() {
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 50; i++) {
             System.out.println();
         }
     }

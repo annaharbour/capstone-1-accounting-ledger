@@ -23,16 +23,15 @@ public class Reports {
     }
 
     public static void returnToMenu(Scanner scanner) {
-//        System.out.println("\nPress Enter to return to the menu...");
-//        scanner.nextLine();
-        System.out.println("\nPress Enter to return to the menu...");
-        if (scanner.hasNextLine()) {
-            scanner.nextLine(); // Clear the buffer
-        }
+      System.out.println("\nPress Enter to return to the menu...");
+//        if (scanner.hasNextLine()) {
+            scanner.nextLine();
+//        }
     }
 
     public static String makeSelection(Scanner scanner) {
         while (true) {
+            UIUtils.clearScreen();
             displayMenu();
             String menuSelection = scanner.nextLine().trim().toUpperCase();
             switch (menuSelection) {

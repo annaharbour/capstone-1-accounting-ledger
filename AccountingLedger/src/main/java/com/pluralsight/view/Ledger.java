@@ -47,7 +47,7 @@ public class Ledger {
                 default:
                     UIUtils.printColored("Invalid menu selection", "red");
                     try {
-                        Thread.sleep(1000);
+                        Thread.sleep(1500);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
